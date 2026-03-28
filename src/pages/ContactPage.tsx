@@ -53,9 +53,30 @@ export default function ContactPage() {
 
   const subject = watch('subject');
 
-  const onSubmit = async (_data: ContactFormData) => {
-    // TODO: wire up a real backend/email service here
-    toast.success(t('Message Sent!'));
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: '75957b0c-8c3e-4a4c-812f-41696b1cf684',
+          name: data.name,
+          email: data.email,
+          phone: data.phone || 'Not provided',
+          subject: `New Contact Form Submission - Ivy Bridge [${data.subject}]`,
+          message: `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'Not provided'}\nInterest: ${data.subject}`,
+          from_name: 'Ivy Bridge Contact Form',
+        }),
+      });
+      const result = await response.json();
+      if (result.success) {
+        toast.success(t('Message Sent!'));
+      } else {
+        toast.error('Something went wrong. Please try again.');
+      }
+    } catch {
+      toast.error('Failed to send message. Please try again.');
+    }
   };
 
   const interests = [
