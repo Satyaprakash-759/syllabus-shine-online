@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -39,13 +40,15 @@ export default function ContactPage() {
   const { data: pageData } = usePageData('contact');
   const { settings } = useSiteSettings();
 
+  const [isSuccess, setIsSuccess] = useState(false);
+
   const {
     register,
     handleSubmit,
     reset,
     setValue,
     watch,
-    formState: { errors, isSubmitSuccessful, isSubmitting },
+    formState: { errors, isSubmitting },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     defaultValues: { subject: 'general' },
@@ -70,6 +73,7 @@ export default function ContactPage() {
       });
       const result = await response.json();
       if (result.success) {
+        setIsSuccess(true);
         toast.success(t('Message Sent!'));
       } else {
         toast.error('Something went wrong. Please try again.');
@@ -97,7 +101,7 @@ export default function ContactPage() {
         <div className="bg-white p-4 xs:p-6 sm:p-12 md:p-16 rounded-[2rem] sm:rounded-[3rem] border border-slate-100 shadow-2xl animate-in fade-in zoom-in duration-1000 max-w-4xl mx-auto">
           <h3 className="text-2xl xs:text-3xl font-black text-navy mb-6 text-left">{t('Contact Us')}</h3>
 
-          {isSubmitSuccessful ? (
+          {isSuccess ? (
             <div className="bg-primary/10 p-8 rounded-3xl text-center animate-in fade-in zoom-in duration-500">
               <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center text-primary mx-auto mb-6">
                 <CheckCircle2 size={40} />
@@ -105,7 +109,7 @@ export default function ContactPage() {
               <h4 className="text-2xl font-black text-navy mb-4">{t('Thanks! We will')}</h4>
               <p className="text-slate-600 font-medium">{t('get back to you within 24 hours.')}</p>
               <button
-                onClick={() => reset()}
+                onClick={() => { reset(); setIsSuccess(false); }}
                 className="mt-8 text-primary font-black uppercase tracking-widest text-sm hover:underline"
               >
                 {t('Send another message')}
