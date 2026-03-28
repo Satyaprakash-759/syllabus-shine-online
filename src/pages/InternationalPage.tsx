@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
-import { BookOpen, GraduationCap, Award, CheckCircle2, ChevronRight, Sparkles, Target, Globe, Library } from 'lucide-react';
+import { CheckCircle2, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { usePageData } from '@/hooks/usePageData';
 import { MetaSEO } from '@/components/MetaSEO';
@@ -92,27 +92,7 @@ export default function InternationalPage() {
                 </div>
             </section>
 
-            {/* Academic Excellence Stats - Matching Cambridge/IB feel */}
-            <section className="py-6 md:py-24 bg-slate-900">
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:p-12">
-                        {[
-                            { label: t('CBSE MASTERY'), value: '92%', icon: Library },
-                            { label: t('CANADIAN ALUMNI'), value: '500+', icon: GraduationCap },
-                            { label: t('SINGAPORE MATHS'), value: '100%', icon: Target },
-                            { label: t('GLOBAL NETWORK'), value: '25+', icon: Globe },
-                        ].map((stat, i) => (
-                            <div key={i} className="text-center group">
-                                <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-primary mx-auto mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-500">
-                                    <stat.icon size={32} strokeWidth={2.5} />
-                                </div>
-                                <div className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-white mb-2">{stat.value}</div>
-                                <div className="text-xs font-black text-slate-500 uppercase tracking-[0.3em]">{stat.label}</div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+
 
             {/* Page Builder Content */}
             {pageData?.content && <PageBuilder content={pageData.content} />}
