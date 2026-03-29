@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { X, Clock, Users, ArrowRight } from 'lucide-react';
+import { X, Clock, Users, ArrowRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 
 export default function OfferPopup() {
@@ -9,14 +9,14 @@ export default function OfferPopup() {
     const { t } = useLanguage();
     const { pathname } = useLocation();
 
-    // Target date for the offer
-    const targetDate = new Date('2026-04-30T23:59:59').getTime();
+    // Target date for the offer: March 31, 2026
+    const targetDate = new Date('2026-03-31T23:59:59').getTime();
 
     useEffect(() => {
-        const hasSeenOffer = sessionStorage.getItem('ivy_offer_seen_v2');
+        const hasSeenOffer = sessionStorage.getItem('ivy_offer_seen_v3');
         if (hasSeenOffer) return;
 
-        // Check if we are on a course/curriculum page
+        // Check if we are on a course/curriculum page or if 30s have passed
         const isCoursePage = pathname.includes('/cambridge') || 
                              pathname.includes('/ib') || 
                              pathname.includes('/international') || 
@@ -25,11 +25,9 @@ export default function OfferPopup() {
                              pathname.includes('/indian');
 
         if (isCoursePage) {
-            // Trigger almost immediately on course pages (1.5s delay for smooth entrance)
             const showTimer = setTimeout(() => setIsVisible(true), 1500);
             return () => clearTimeout(showTimer);
         } else {
-            // Fallback: Show after 30 seconds of exploration on other pages (e.g. Home)
             const showTimer = setTimeout(() => setIsVisible(true), 30000);
             return () => clearTimeout(showTimer);
         }
@@ -60,8 +58,7 @@ export default function OfferPopup() {
 
     const handleClose = () => {
         setIsVisible(false);
-        // We set session storage so it doesn't pop up again in the same session
-        sessionStorage.setItem('ivy_offer_seen_v2', 'true');
+        sessionStorage.setItem('ivy_offer_seen_v3', 'true');
     };
 
     if (!isVisible) return null;
@@ -70,81 +67,77 @@ export default function OfferPopup() {
         <div className="fixed inset-0 z-[300] flex items-center justify-center p-4">
             {/* Backdrop */}
             <div
-                className="absolute inset-0 bg-navy/40 backdrop-blur-md animate-in fade-in duration-700"
+                className="absolute inset-0 bg-navy/60 backdrop-blur-md animate-in fade-in duration-700"
                 onClick={handleClose}
             />
 
             {/* Popup */}
-            <div className="relative bg-white rounded-[2rem] xs:rounded-[3rem] shadow-2xl max-w-2xl w-full p-6 xs:p-10 sm:p-12 animate-in zoom-in-95 fade-in duration-700 overflow-hidden border border-white/20">
-                {/* Decorative Background Elements */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/5 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl pointer-events-none" />
+            <div className="relative bg-white rounded-[2.5rem] md:rounded-[3.5rem] shadow-2xl max-w-4xl w-full animate-in zoom-in-95 fade-in duration-700 overflow-hidden border border-white/20 flex flex-col md:flex-row">
+                
+                {/* Visual Side (Image) */}
+                <div className="md:w-5/12 bg-gradient-to-br from-[#5595D9]/10 to-primary/20 relative overflow-hidden flex items-end justify-center pt-12 md:pt-0">
+                    <div className="absolute top-12 left-12 w-48 h-48 bg-primary/20 rounded-full blur-3xl" />
+                    <img 
+                      src="/student-offer.png" 
+                      alt="Special Offer Student" 
+                      className="relative z-10 w-[80%] md:w-[90%] h-auto object-contain drop-shadow-2xl"
+                    />
+                </div>
 
-                {/* Close Button */}
-                <button
-                    onClick={handleClose}
-                    className="absolute top-6 right-6 w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 hover:text-navy hover:bg-slate-200 transition-all z-20"
-                >
-                    <X size={20} />
-                </button>
+                {/* Content Side */}
+                <div className="md:w-7/12 p-8 md:p-14 relative z-10 flex flex-col justify-center">
+                    {/* Close Button */}
+                    <button
+                        onClick={handleClose}
+                        className="absolute top-6 right-6 w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 hover:text-navy hover:bg-slate-200 transition-all z-20"
+                    >
+                        <X size={20} />
+                    </button>
 
-                {/* Content */}
-                <div className="relative z-10 text-center flex flex-col items-center">
-                    {/* Small tag at top */}
-                    <div className="w-24 h-5 bg-[#5595D9]/30 rounded-full mb-8" />
+                    <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 w-fit">
+                        <Sparkles size={16} className="animate-pulse" />
+                        <span className="text-xs font-black uppercase tracking-widest">{t('Special Offer!')}</span>
+                    </div>
 
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-navy mb-6 tracking-tight uppercase">
-                        UNLOCK <span className="text-[#5595D9]">ELITE</span> LEARNING
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-navy mb-4 tracking-tight leading-none uppercase">
+                        AI <span className="text-[#5595D9]">Prompting</span>,<br />
+                        <span className="text-primary italic">Coding & Python</span>
                     </h2>
+                    
+                    <p className="text-slate-500 font-bold text-sm md:text-lg mb-8 tracking-wide">
+                        {t('Premium 1-on-1 Sessions for Future Technologists')}
+                    </p>
 
-                    <div className="flex flex-col md:flex-row items-center gap-6 mb-10 w-full justify-center">
-                        {/* Price Block */}
-                        <div className="flex flex-col items-start md:items-center">
-                           <div className="flex items-baseline gap-2">
-                                <span className="text-5xl sm:text-7xl font-black text-[#5595D9]">800 Baht</span>
-                           </div>
-                           <span className="text-slate-400 font-bold tracking-[0.2em] uppercase text-xs md:text-sm mt-1">PER HOUR</span>
+                    <div className="flex flex-wrap items-center gap-6 mb-10 bg-slate-50/80 p-6 rounded-3xl border border-slate-100 shadow-inner">
+                        <div className="flex flex-col">
+                            <div className="flex items-baseline gap-3">
+                                <span className="text-slate-400 text-2xl md:text-3xl line-through decoration-red-400 font-bold italic">฿990</span>
+                                <span className="text-4xl md:text-6xl font-black text-[#5595D9]">฿590</span>
+                            </div>
+                            <span className="text-slate-400 font-black tracking-[0.2em] uppercase text-[10px] md:text-xs">PER SESSION</span>
                         </div>
 
-                        {/* Divider Line on Desktop */}
-                        <div className="hidden md:block w-px h-16 bg-slate-100 mx-4" />
+                        <div className="h-12 w-px bg-slate-200 hidden sm:block" />
 
-                        {/* Badges Block */}
-                        <div className="flex flex-col gap-3">
-                            {/* Countdown/Valid Until */}
-                            <div className="bg-navy text-white px-5 py-3 rounded-2xl flex items-center gap-3 shadow-lg shadow-navy/20 min-w-[200px]">
-                                <Clock size={18} className="text-primary animate-pulse" />
-                                <div className="flex flex-col items-start">
-                                    <span className="text-[10px] font-black uppercase tracking-wider text-primary/80">VALID UNTIL APRIL 30</span>
-                                    <div className="flex gap-1 font-mono text-sm font-bold">
-                                        <span>{timeLeft.days}d</span>
-                                        <span>{timeLeft.hours}h</span>
-                                        <span>{timeLeft.minutes}m</span>
-                                        <span className="text-primary w-8">{timeLeft.seconds}s</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Limited Slots */}
-                            <div className="bg-[#FFF5EB] text-[#854D0E] px-5 py-3 rounded-2xl flex items-center gap-3 border border-[#FDE68A]/30">
-                                <Users size={18} />
-                                <span className="font-black text-xs uppercase tracking-widest leading-none">LIMITED SLOTS</span>
+                        <div className="flex flex-col gap-2">
+                             <div className="flex items-center gap-2 text-navy font-black text-sm uppercase tracking-tighter">
+                                <Clock size={16} className="text-primary" />
+                                <span>{timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s</span>
+                             </div>
+                             <div className="bg-[#FFF5EB] text-[#854D0E] px-4 py-1.5 rounded-full flex items-center gap-2 border border-[#FDE68A]/30 w-fit">
+                                <Users size={14} />
+                                <span className="font-black text-[10px] uppercase tracking-widest">LIMITED SLOTS</span>
                             </div>
                         </div>
                     </div>
 
-                    <p className="text-slate-600 text-lg md:text-xl font-medium mb-10 max-w-lg leading-relaxed">
-                        {t('Experience elite 1-on-1 private tutoring with our expert educators.')}
-                    </p>
-
-                    {/* CTA Button */}
                     <a
                         href="https://line.me/ti/p/@221vifhp"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group w-full bg-[#5595D9]/20 hover:bg-[#5595D9] text-[#5595D9] hover:text-white px-8 py-5 rounded-[1.5rem] font-black text-sm md:text-base transition-all duration-500 flex items-center justify-center gap-3 shadow-xl hover:shadow-primary/40 border border-[#5595D9]/30"
+                        className="group w-full bg-navy hover:bg-primary text-white px-8 py-5 rounded-2xl font-black text-sm md:text-base transition-all duration-500 flex items-center justify-center gap-3 shadow-xl hover:shadow-primary/30"
                     >
-                        {t('BOOK YOUR FREE DEMO SESSION VIA LINE OFFICIAL TODAY')}
+                        {t('BOOK YOUR SESSION VIA LINE TODAY')}
                         <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                     </a>
                 </div>
