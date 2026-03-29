@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import {
     BookOpen, CheckCircle2, ChevronRight, Target, Award, Monitor,
-    Sparkles, Clock, Star, Users, MapPin, Building, MessageSquare,
+    Sparkles, Clock, Users, MapPin, Building, MessageSquare,
     ShieldCheck, Zap, Globe, GraduationCap
 } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -29,10 +29,7 @@ const subjects = [
     }
 ];
 
-const testimonials = [
-    { name: 'Sudhir', role: 'Cambridge A Level', content: "My son sudhir keeps to development properly way to the teacher's steering. He has scored A* in Math, Physics and Biology. As dad and mom we are able to see he has sincerely improvised.", rating: 5 },
-    { name: 'Mandal', role: 'Cambridge As Level', content: "My daughter Polimandal is analyzing in Grade 11 and is taking Accountancy instructions from Mohit Agarwal sir. She's very glad with his commands.", rating: 5 },
-];
+
 
 export default function CambridgeALevelPage() {
     const { t } = useLanguage();
@@ -91,30 +88,7 @@ export default function CambridgeALevelPage() {
 
 
 
-            {/* Testimonials */}
-            <section className="py-10 md:py-32 bg-white">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 md:p-8">
-                        {testimonials.map((t, i) => (
-                            <div key={i} className="bg-slate-50 p-5 xs:p-8 md:p-12 rounded-[1.5rem] xs:rounded-3xl md:rounded-[4rem] border border-slate-100 relative group overflow-hidden">
-                                <div className="flex text-amber-400 mb-6">
-                                    {Array(t.rating).fill(0).map((_, j) => <Star key={j} size={16} fill="currentColor" />)}
-                                </div>
-                                <p className="text-lg text-slate-600 font-medium italic mb-10 leading-relaxed">"{t.content}"</p>
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-black">
-                                        {t.name[0]}
-                                    </div>
-                                    <div>
-                                        <h4 className="font-black text-navy">{t.name}</h4>
-                                        <p className="text-xs font-bold text-primary tracking-widest uppercase">{t.role}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+
 
 
             {/* Page Builder Content */}

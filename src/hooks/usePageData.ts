@@ -10,13 +10,7 @@ const pagesData: Record<string, any> = {
     'cambridge/igcse': {
         metaTitle: 'Cambridge IGCSE | Ivy Bridge Elite Online Tutoring',
         metaDescription: 'Expert 1-on-1 Cambridge IGCSE tutoring in Bangkok.',
-        content: [
-            {
-                type: 'hero',
-                title: 'Cambridge IGCSE Program',
-                subtitle: 'The world\'s most popular international qualification.'
-            }
-        ]
+        content: []
     },
     'ib/middle-years': {
         metaTitle: 'IB Middle Years Program (MYP) | Ivy Bridge Elite Tutoring',
