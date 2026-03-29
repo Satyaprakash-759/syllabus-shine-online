@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { X, Clock, Users, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 
@@ -6,18 +7,33 @@ export default function OfferPopup() {
     const [isVisible, setIsVisible] = useState(false);
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
     const { t } = useLanguage();
+    const { pathname } = useLocation();
 
     // Target date for the offer
     const targetDate = new Date('2026-04-30T23:59:59').getTime();
 
     useEffect(() => {
-        // Show after 10 seconds for easier testing (requested 30s, can revert later)
         const hasSeenOffer = sessionStorage.getItem('ivy_offer_seen_v2');
-        if (!hasSeenOffer) {
-            const showTimer = setTimeout(() => setIsVisible(true), 10000);
+        if (hasSeenOffer) return;
+
+        // Check if we are on a course/curriculum page
+        const isCoursePage = pathname.includes('/cambridge') || 
+                             pathname.includes('/ib') || 
+                             pathname.includes('/international') || 
+                             pathname.includes('/singaporean') || 
+                             pathname.includes('/canadian') ||
+                             pathname.includes('/indian');
+
+        if (isCoursePage) {
+            // Trigger almost immediately on course pages (1.5s delay for smooth entrance)
+            const showTimer = setTimeout(() => setIsVisible(true), 1500);
+            return () => clearTimeout(showTimer);
+        } else {
+            // Fallback: Show after 30 seconds of exploration on other pages (e.g. Home)
+            const showTimer = setTimeout(() => setIsVisible(true), 30000);
             return () => clearTimeout(showTimer);
         }
-    }, []);
+    }, [pathname]);
 
     useEffect(() => {
         if (!isVisible) return;
