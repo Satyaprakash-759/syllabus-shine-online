@@ -11,10 +11,10 @@ export default function OfferPopup() {
     const targetDate = new Date('2026-04-30T23:59:59').getTime();
 
     useEffect(() => {
-        // Show after 30 seconds of exploration
-        const hasSeenOffer = sessionStorage.getItem('ivy_offer_seen');
+        // Show after 10 seconds for easier testing (requested 30s, can revert later)
+        const hasSeenOffer = sessionStorage.getItem('ivy_offer_seen_v2');
         if (!hasSeenOffer) {
-            const showTimer = setTimeout(() => setIsVisible(true), 30000);
+            const showTimer = setTimeout(() => setIsVisible(true), 10000);
             return () => clearTimeout(showTimer);
         }
     }, []);
@@ -45,7 +45,7 @@ export default function OfferPopup() {
     const handleClose = () => {
         setIsVisible(false);
         // We set session storage so it doesn't pop up again in the same session
-        sessionStorage.setItem('ivy_offer_seen', 'true');
+        sessionStorage.setItem('ivy_offer_seen_v2', 'true');
     };
 
     if (!isVisible) return null;

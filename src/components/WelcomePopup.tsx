@@ -15,16 +15,16 @@ export default function WelcomePopup() {
     const { t, language, setLanguage } = useLanguage();
 
     useEffect(() => {
-        const hasSeenPopup = sessionStorage.getItem('ivy_welcome_seen');
+        const hasSeenPopup = sessionStorage.getItem('ivy_welcome_seen_v2');
         if (!hasSeenPopup) {
-            const timer = setTimeout(() => setIsVisible(true), 4000);
+            const timer = setTimeout(() => setIsVisible(true), 2000); // 2s delay
             return () => clearTimeout(timer);
         }
     }, []);
 
     const handleClose = () => {
         setIsVisible(false);
-        sessionStorage.setItem('ivy_welcome_seen', 'true');
+        sessionStorage.setItem('ivy_welcome_seen_v2', 'true');
     };
 
     if (!isVisible) return null;
