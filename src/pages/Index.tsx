@@ -127,7 +127,7 @@ export default function Index() {
                   loop
                   muted
                   playsInline
-                  preload="auto"
+                  preload="none"
                   poster="/homepage-hero-poster.jpg"
                   className="absolute inset-0 w-full h-full object-cover z-0"
                 >

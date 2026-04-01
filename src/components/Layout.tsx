@@ -4,7 +4,7 @@ import { Phone } from 'lucide-react';
 import Header from './Header';
 import Footer from './Footer';
 import WelcomePopup from './WelcomePopup';
-import OfferPopup from './OfferPopup';
+
 import AutoTranslator from './AutoTranslator';
 import { useSiteSettings } from '@/hooks/useSiteSettings';
 
@@ -26,7 +26,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <main className="flex-1 pt-[88px] md:pt-[125px]">{children}</main>
       <Footer />
       <WelcomePopup />
-      <OfferPopup />
+
       <AutoTranslator />
 
       {/* Floating Action Buttons */}
