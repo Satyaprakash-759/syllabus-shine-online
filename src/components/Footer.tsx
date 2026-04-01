@@ -144,22 +144,42 @@ export default function Footer() {
         </div>
 
         {/* Footer Bottom Bar */}
-        <div className="pt-6 border-t border-slate-50 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 order-2 md:order-1">
-             <p className="text-slate-400 font-bold text-sm">
-              &copy; {new Date().getFullYear()} <span className="text-navy font-black tracking-widest uppercase underline decoration-primary/30 underline-offset-4">Ivy Bridge.</span>
-            </p>
-            <div className="h-1 w-1 bg-slate-200 rounded-full hidden md:block" />
-            <p className="text-slate-400 font-bold text-sm italic">{t('Excellence in Global Education')}</p>
+        <div className="pt-6 border-t border-slate-50 flex flex-col gap-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 order-2 md:order-1">
+              <p className="text-slate-400 font-bold text-sm">
+                &copy; {new Date().getFullYear()} <span className="text-navy font-black tracking-widest uppercase underline decoration-primary/30 underline-offset-4">Ivy Bridge.</span>
+              </p>
+              <div className="h-1 w-1 bg-slate-200 rounded-full hidden md:block" />
+              <p className="text-slate-400 font-bold text-sm italic">{t('Excellence in Global Education')}</p>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-6 order-1 md:order-2">
+              <div className="flex items-center gap-2 group mr-4">
+                <MapPin size={16} className="text-primary group-hover:scale-110 transition-transform" />
+                <p className="text-slate-800 font-extrabold text-sm leading-tight transition-colors">{t('Bangkok, Thailand')}</p>
+              </div>
+              <Link to="/privacy-policy" className="text-slate-400 hover:text-primary font-black text-[10px] uppercase tracking-[0.2em] transition-all">{t('Privacy Policy')}</Link>
+              <Link to="/terms" className="text-slate-400 hover:text-primary font-black text-[10px] uppercase tracking-[0.2em] transition-all">{t('Terms')}</Link>
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 order-1 md:order-2">
-            <div className="flex items-center gap-2 group mr-4">
-              <MapPin size={16} className="text-primary group-hover:scale-110 transition-transform" />
-              <p className="text-slate-800 font-extrabold text-sm leading-tight transition-colors">{t('Bangkok, Thailand')}</p>
-            </div>
-            <Link to="/privacy-policy" className="text-slate-400 hover:text-primary font-black text-[10px] uppercase tracking-[0.2em] transition-all">{t('Privacy Policy')}</Link>
-            <Link to="/terms" className="text-slate-400 hover:text-primary font-black text-[10px] uppercase tracking-[0.2em] transition-all">{t('Terms')}</Link>
+          {/* Orbyza Branding */}
+          <div className="flex justify-center pt-2">
+            <a
+              href="https://orbyza.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-100 bg-slate-50 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
+            >
+              <span className="text-slate-400 text-[11px] font-semibold tracking-wide">Website by</span>
+              <span className="text-[12px] font-black tracking-wider bg-gradient-to-r from-[#5595D9] to-[#3a7bd5] bg-clip-text text-transparent group-hover:from-primary group-hover:to-blue-500 transition-all duration-300">
+                ORBYZA
+              </span>
+              <svg className="w-3 h-3 text-slate-300 group-hover:text-primary transition-colors duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
           </div>
         </div>
       </div>
