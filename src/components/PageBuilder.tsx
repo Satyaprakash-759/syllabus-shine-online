@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import { CheckCircle2, Award, BookOpen, GraduationCap, Star, Users, ArrowRight, Zap, Target } from 'lucide-react';
 
@@ -98,3 +99,5 @@ export const PageBuilder: React.FC<PageBuilderProps> = ({ content }) => {
     </div>
   );
 };
+
+

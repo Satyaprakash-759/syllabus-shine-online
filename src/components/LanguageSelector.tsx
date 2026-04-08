@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -78,3 +79,5 @@ export default function LanguageSelector() {
         </div>
     );
 }
+
+

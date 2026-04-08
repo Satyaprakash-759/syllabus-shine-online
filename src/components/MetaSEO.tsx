@@ -1,3 +1,4 @@
+"use client";
 import { useEffect } from 'react';
 
 interface MetaSEOProps {
@@ -20,3 +21,5 @@ export function MetaSEO({ defaultTitle }: MetaSEOProps) {
 
     return null;
 }
+
+

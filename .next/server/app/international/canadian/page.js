@@ -1,0 +1,13 @@
+var R=require("../../../chunks/ssr/[turbopack]_runtime.js")("server/app/international/canadian/page.js")
+R.c("server/chunks/ssr/[root-of-the-server]__0jilo3n._.js")
+R.c("server/chunks/ssr/0qjp_next_dist_esm_build_templates_app-page_0mo~xy6.js")
+R.c("server/chunks/ssr/[root-of-the-server]__0b.m29f._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__0x~sccw._.js")
+R.c("server/chunks/ssr/Documents_Vercel Projects_syllabus-shine-online-main_src_11yusyl._.js")
+R.c("server/chunks/ssr/0m4n_Vercel Projects_syllabus-shine-online-main_src_app_not-found_tsx_03o8xty._.js")
+R.c("server/chunks/ssr/0qjp_next_dist_client_components_10ca91a._.js")
+R.c("server/chunks/ssr/0qjp_next_dist_client_components_builtin_unauthorized_03ypq2s.js")
+R.c("server/chunks/ssr/0qjp_next_dist_client_components_builtin_global-error_0em-50z.js")
+R.c("server/chunks/ssr/0.jk__next-internal_server_app_international_canadian_page_actions_0rqhkvi.js")
+R.m(27478)
+module.exports=R.m(27478).exports

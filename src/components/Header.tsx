@@ -1,5 +1,7 @@
+"use client";
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, ChevronRight, ChevronDown, GraduationCap, Zap, Sparkles } from 'lucide-react';
 import LanguageSelector from './LanguageSelector';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -13,7 +15,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openMobileAccordion, setOpenMobileAccordion] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
   const { t } = useLanguage();
 
   const finalNavItems = settings?.header?.navItems || [
@@ -70,7 +72,7 @@ export default function Header() {
   useEffect(() => {
     setMobileMenuOpen(false);
     setOpenMobileAccordion(null);
-  }, [location.pathname]);
+  }, [pathname]);
 
   return (
     <>
@@ -90,7 +92,7 @@ export default function Header() {
               }`}
           >
             {/* Logo Section */}
-            <Link to="/" className="flex-shrink-0 flex items-center group relative z-[20]">
+            <Link href="/" className="flex-shrink-0 flex items-center group relative z-[20]">
               <img
                 src="/logo.png"
                 alt="Ivy Bridge"
@@ -104,9 +106,8 @@ export default function Header() {
             <nav className="hidden lg:flex flex-1 justify-center items-center gap-0.5 xl:gap-1.5 z-[10]">
               {finalNavItems.map((item: any) => (
                 <div key={item.path} className="relative group/nav">
-                  <Link
-                    to={item.path}
-                    className={`relative px-1.5 lg:px-2 xl:px-2.5 py-2 text-[13px] xl:text-[14px] font-bold transition-all duration-300 rounded-xl flex items-center gap-1.5 ${location.pathname.startsWith(item.path) && item.path !== '/'
+                  <Link href={item.path || "#"}
+                    className={`relative px-1.5 lg:px-2 xl:px-2.5 py-2 text-[13px] xl:text-[14px] font-bold transition-all duration-300 rounded-xl flex items-center gap-1.5 ${pathname.startsWith(item.path) && item.path !== '/'
                       ? 'text-primary'
                       : 'text-slate-700 hover:text-slate-900 shadow-sm sm:shadow-none'
                       }`}
@@ -123,7 +124,7 @@ export default function Header() {
                         {item.subItems.map((sub: any) => (
                           <Link
                             key={sub.path}
-                            to={sub.path}
+                            href={sub.path || "#"}
                             className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-50 text-sm font-bold text-slate-700 hover:text-primary transition-all"
                           >
                             <div className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-primary" />
@@ -151,8 +152,7 @@ export default function Header() {
               <div className="scale-95 xl:scale-100 origin-right">
                 <LanguageSelector />
               </div>
-              <Link
-                to="/contact"
+              <Link href="/contact"
                 className={`hidden sm:flex items-center gap-2 px-4 xl:px-6 py-2.5 rounded-xl font-bold text-[13px] xl:text-[14px] transition-all duration-300 active:scale-95 group bg-slate-900 text-white hover:bg-primary shadow-sm whitespace-nowrap`}
               >
                 {t('Book a Demo')}
@@ -203,20 +203,19 @@ export default function Header() {
               {finalNavItems.map((item: any) => (
                 <div key={item.path} className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <Link
-                      to={item.path}
+                    <Link href={item.path || "#"}
                       onClick={() => setMobileMenuOpen(false)}
                       className={`flex-1 group flex items-center justify-between py-5 px-4 md:px-8 rounded-2xl text-xl font-black transition-all duration-300 ${
-                        location.pathname === item.path
+                        pathname === item.path
                           ? 'bg-primary text-white shadow-xl shadow-primary/20'
                           : 'text-slate-800 hover:bg-slate-50'
                       }`}
                     >
                       <span className="flex items-center gap-4">
                         {t(item.label)}
-                        {location.pathname === item.path && <Sparkles size={16} className="text-white animate-pulse" />}
+                        {pathname === item.path && <Sparkles size={16} className="text-white animate-pulse" />}
                       </span>
-                      {!item.subItems && <ChevronRight size={20} className={location.pathname === item.path ? 'opacity-100' : 'opacity-20'} />}
+                      {!item.subItems && <ChevronRight size={20} className={pathname === item.path ? 'opacity-100' : 'opacity-20'} />}
                     </Link>
                     
                     {item.subItems && (
@@ -245,7 +244,7 @@ export default function Header() {
                       {item.subItems.map((sub: any) => (
                         <Link
                           key={sub.path}
-                          to={sub.path}
+                          href={sub.path || "#"}
                           onClick={() => setMobileMenuOpen(false)}
                           className="flex items-center gap-3 py-4 px-6 rounded-xl bg-slate-50 text-slate-500 font-bold text-sm hover:text-primary transition-all"
                         >
@@ -280,8 +279,7 @@ export default function Header() {
                 </div>
               </div>
 
-              <Link
-                to="/contact"
+              <Link href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-center gap-3 bg-primary text-white py-6 rounded-[2rem] font-black text-xl shadow-2xl transition-all hover:bg-primary/90 active:scale-[0.98]"
               >
@@ -294,3 +292,5 @@ export default function Header() {
     </>
   );
 }
+
+

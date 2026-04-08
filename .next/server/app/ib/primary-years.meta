@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/ib/layout,_N_T_/ib/primary-years/layout,_N_T_/ib/primary-years/page,_N_T_/ib/primary-years"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/ib/primary-years/__PAGE__",
+    "/ib/primary-years",
+    "/ib",
+    "/_index",
+    "/_head"
+  ]
+}

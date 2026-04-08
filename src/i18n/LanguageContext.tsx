@@ -1,3 +1,4 @@
+"use client";
 import { createContext, useContext, useState, useCallback, ReactNode, useEffect } from 'react';
 import { thTranslations } from './th';
 
@@ -121,3 +122,4 @@ async function fetchTranslation(text: string, onSuccess?: () => void) {
 export function useLanguage() {
     return useContext(LanguageContext);
 }
+

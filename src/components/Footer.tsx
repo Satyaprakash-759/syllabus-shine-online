@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+"use client";
+import Link from 'next/link';
 import { Phone, MapPin, Mail, Instagram, Facebook, MessageCircle, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { useSiteSettings } from '@/hooks/useSiteSettings';
@@ -29,7 +30,7 @@ export default function Footer() {
 
           {/* Brand & Socials */}
           <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
-            <Link to="/" className="mb-2 inline-block group">
+            <Link href="/" className="mb-2 inline-block group">
               <div className="relative">
                 <img src="/logo.png" alt="Ivy Bridge Logo" className="h-[90px] w-auto object-contain transition-all duration-700 ease-out group-hover:scale-105" width="220" height="90" />
                 <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 group-hover:w-1/2 h-0.5 bg-gradient-to-r from-primary to-blue-400 transition-all duration-700" />
@@ -103,14 +104,14 @@ export default function Footer() {
               <ul className="space-y-2">
                 {quickLinks.map((link: any) => (
                   <li key={link.path}>
-                    <Link to={link.path} className="text-slate-500 hover:text-primary font-bold text-base flex items-center gap-2 group transition-all">
+                    <Link href={link.path || "#"} className="text-slate-500 hover:text-primary font-bold text-base flex items-center gap-2 group transition-all">
                       <ArrowRight size={14} className="text-slate-300 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                       {t(link.label)}
                     </Link>
                   </li>
                 ))}
                 <li>
-                  <Link to="/faq" className="text-slate-500 hover:text-primary font-bold text-base flex items-center gap-2 group transition-all">
+                  <Link href="/faq" className="text-slate-500 hover:text-primary font-bold text-base flex items-center gap-2 group transition-all">
                     <ArrowRight size={14} className="text-slate-300 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                     {t('FAQ')}
                   </Link>
@@ -129,7 +130,7 @@ export default function Footer() {
                   { label: 'International', path: '/international' }
                 ].map((item) => (
                   <li key={item.path}>
-                    <Link to={item.path} className="text-slate-500 hover:text-primary font-bold text-base flex items-center gap-2 group transition-all">
+                    <Link href={item.path || "#"} className="text-slate-500 hover:text-primary font-bold text-base flex items-center gap-2 group transition-all">
                       <ArrowRight size={14} className="text-slate-300 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                       {t(item.label)}
                     </Link>
@@ -159,8 +160,8 @@ export default function Footer() {
                 <MapPin size={16} className="text-primary group-hover:scale-110 transition-transform" />
                 <p className="text-slate-800 font-extrabold text-sm leading-tight transition-colors">{t('Bangkok, Thailand')}</p>
               </div>
-              <Link to="/privacy-policy" className="text-slate-400 hover:text-primary font-black text-[10px] uppercase tracking-[0.2em] transition-all">{t('Privacy Policy')}</Link>
-              <Link to="/terms" className="text-slate-400 hover:text-primary font-black text-[10px] uppercase tracking-[0.2em] transition-all">{t('Terms')}</Link>
+              <Link href="/privacy-policy" className="text-slate-400 hover:text-primary font-black text-[10px] uppercase tracking-[0.2em] transition-all">{t('Privacy Policy')}</Link>
+              <Link href="/terms" className="text-slate-400 hover:text-primary font-black text-[10px] uppercase tracking-[0.2em] transition-all">{t('Terms')}</Link>
             </div>
           </div>
 
@@ -172,7 +173,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-100 bg-slate-50 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
             >
-              <span className="text-slate-400 text-[11px] font-semibold tracking-wide">Website by</span>
+              <span className="text-slate-400 text-[11px] font-semibold tracking-wide">Designed by</span>
               <span className="text-[12px] font-black tracking-wider bg-gradient-to-r from-[#5595D9] to-[#3a7bd5] bg-clip-text text-transparent group-hover:from-primary group-hover:to-blue-500 transition-all duration-300">
                 ORBYZA
               </span>
@@ -186,3 +187,6 @@ export default function Footer() {
     </footer>
   );
 }
+
+
+

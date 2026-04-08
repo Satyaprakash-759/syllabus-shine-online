@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/cambridge/layout,_N_T_/cambridge/o-level/layout,_N_T_/cambridge/o-level/page,_N_T_/cambridge/o-level"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/cambridge/o-level/__PAGE__",
+    "/cambridge/o-level",
+    "/cambridge",
+    "/_index",
+    "/_head"
+  ]
+}

@@ -1,3 +1,4 @@
+"use client";
 // =============================================================
 // AutoTranslator — Automatic DOM-based page translation engine
 // =============================================================
@@ -212,3 +213,5 @@ export default function AutoTranslator() {
 
     return null; // renders nothing — pure side-effect component
 }
+
+

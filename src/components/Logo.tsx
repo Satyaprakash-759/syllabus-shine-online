@@ -1,5 +1,6 @@
+"use client";
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from 'next/link';
 
 interface LogoProps {
     className?: string;
@@ -39,7 +40,7 @@ const Logo: React.FC<LogoProps> = ({
     const currentColors = colors[variant];
 
     return (
-        <Link to="/" className={`flex items-center group ${className}`}>
+        <Link href="/" className={`flex items-center group ${className}`}>
             <img 
                 src="/logo.png" 
                 alt="Ivy Bridge Logo" 
@@ -50,3 +51,6 @@ const Logo: React.FC<LogoProps> = ({
 };
 
 export default Logo;
+
+
+

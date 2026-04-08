@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
@@ -19,3 +20,5 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(({ classNa
 Textarea.displayName = "Textarea";
 
 export { Textarea };
+
+

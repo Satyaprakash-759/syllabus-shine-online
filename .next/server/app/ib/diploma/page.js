@@ -1,0 +1,13 @@
+var R=require("../../../chunks/ssr/[turbopack]_runtime.js")("server/app/ib/diploma/page.js")
+R.c("server/chunks/ssr/[root-of-the-server]__0-35jdd._.js")
+R.c("server/chunks/ssr/0qjp_next_dist_esm_build_templates_app-page_0rb_pa3.js")
+R.c("server/chunks/ssr/[root-of-the-server]__0b.m29f._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__0x~sccw._.js")
+R.c("server/chunks/ssr/Documents_Vercel Projects_syllabus-shine-online-main_src_11yusyl._.js")
+R.c("server/chunks/ssr/0m4n_Vercel Projects_syllabus-shine-online-main_src_app_not-found_tsx_03o8xty._.js")
+R.c("server/chunks/ssr/0qjp_next_dist_client_components_10ca91a._.js")
+R.c("server/chunks/ssr/0qjp_next_dist_client_components_builtin_unauthorized_03ypq2s.js")
+R.c("server/chunks/ssr/0qjp_next_dist_client_components_builtin_global-error_0em-50z.js")
+R.c("server/chunks/ssr/07hp_abus-shine-online-main__next-internal_server_app_ib_diploma_page_actions_0ev5-g5.js")
+R.m(41295)
+module.exports=R.m(41295).exports

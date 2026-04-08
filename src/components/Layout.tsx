@@ -1,5 +1,6 @@
+"use client";
 import { ReactNode, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { usePathname } from 'next/navigation';
 import { Phone } from 'lucide-react';
 import Header from './Header';
 import Footer from './Footer';
@@ -10,7 +11,7 @@ import { useSiteSettings } from '@/hooks/useSiteSettings';
 
 
 export default function Layout({ children }: { children: ReactNode }) {
-  const { pathname } = useLocation();
+  const pathname = usePathname();
   const { settings } = useSiteSettings();
 
   const phone = settings?.header?.supportPhone || '';
@@ -44,4 +45,6 @@ export default function Layout({ children }: { children: ReactNode }) {
     </div>
   );
 }
+
+
 
