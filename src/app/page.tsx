@@ -557,6 +557,17 @@ export default function Index() {
       </section >
 
 
+      <div className="bg-white py-4 border-t border-slate-50 text-center">
+        <a
+          href="https://orbyza.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 group transition-all"
+        >
+          <span className="text-slate-400 font-bold text-[10px] uppercase tracking-widest">Designed by</span>
+          <span className="text-primary font-black text-[11px] uppercase tracking-tight group-hover:underline">Orbyza Digital Marketing Agency</span>
+        </a>
+      </div>
     </Layout>
   );
 }
