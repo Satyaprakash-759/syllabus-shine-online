@@ -152,7 +152,7 @@ export default function Footer() {
                 &copy; {new Date().getFullYear()} <span className="text-navy font-black tracking-widest uppercase underline decoration-primary/30 underline-offset-4">Ivy Bridge.</span>
               </p>
               <div className="h-1 w-1 bg-slate-200 rounded-full hidden md:block" />
-              <p className="text-slate-400 font-bold text-sm italic">{t('Excellence in Global Education')}</p>
+              <p className="text-slate-400 font-bold text-sm italic">{t('Excellence in Global Education')} - Test</p>
               <div className="h-1 w-1 bg-slate-200 rounded-full hidden md:block" />
               <a
                 href="https://orbyza.com?v=2"
