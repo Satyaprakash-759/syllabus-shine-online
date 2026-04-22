@@ -155,12 +155,12 @@ export default function Footer() {
               <p className="text-slate-400 font-bold text-sm italic">{t('Excellence in Global Education')}</p>
               <div className="h-1 w-1 bg-slate-200 rounded-full hidden md:block" />
               <a
-                href="https://orbyza.com?v=2"
+                href="https://orbyza.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-1.5 transition-all duration-300 bg-primary/5 px-3 py-1 rounded-full border border-primary/10 hover:bg-primary/10"
+                className="group flex items-center gap-1.5 transition-all duration-300"
               >
-                <span className="text-slate-500 font-bold text-[10px] uppercase tracking-wider">Designed by</span>
+                <span className="text-slate-400 font-bold text-[10px] uppercase tracking-wider">Designed by</span>
                 <span className="text-primary font-black text-[11px] tracking-tight group-hover:underline underline-offset-4 uppercase">Orbyza Digital Marketing Agency</span>
               </a>
             </div>
