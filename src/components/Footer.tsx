@@ -165,18 +165,34 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* New Line: Prominent Branding */}
-          <div className="flex justify-center pt-2 pb-2">
+          {/* New Line: Prominent Branding with Running Colors */}
+          <div className="flex justify-center pt-4 pb-4">
             <a
               href="https://orbyza.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 transition-all duration-300 bg-slate-50/50 px-6 py-2 rounded-full border border-slate-100 hover:border-primary/20 hover:bg-white hover:shadow-xl hover:shadow-primary/5"
+              className="group flex flex-col md:flex-row items-center gap-2 transition-all duration-300 bg-white px-8 py-4 rounded-2xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-1"
             >
-              <span className="text-slate-500 font-bold text-[12px] uppercase tracking-widest">Designed by</span>
-              <span className="text-slate-900 font-black text-[14px] tracking-tighter group-hover:underline underline-offset-4 uppercase hover:text-primary transition-colors">Orbyza Digital Marketing Agency</span>
+              <span className="text-slate-400 font-bold text-[13px] uppercase tracking-[0.3em]">Designed by</span>
+              <span className="text-[18px] md:text-[22px] font-black tracking-tighter uppercase relative group-hover:scale-105 transition-transform duration-500">
+                <span className="bg-gradient-to-r from-[#00d2ff] via-[#3a7bd5] to-[#00d2ff] bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-running">
+                  Orbyza Digital Marketing Agency
+                </span>
+                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] group-hover:w-full transition-all duration-700" />
+              </span>
             </a>
           </div>
+
+          <style jsx>{`
+            @keyframes gradient-running {
+              0% { background-position: 0% 50%; }
+              50% { background-position: 100% 50%; }
+              100% { background-position: 0% 50%; }
+            }
+            .animate-gradient-running {
+              animation: gradient-running 3s linear infinite;
+            }
+          `}</style>
 
         </div>
       </div>
