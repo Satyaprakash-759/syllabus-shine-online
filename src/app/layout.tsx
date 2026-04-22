@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import "@/index.css";
 import Providers from "@/components/Providers";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: 'Ivy Bridge - Cambridge & IB Online Tutoring in Thailand',

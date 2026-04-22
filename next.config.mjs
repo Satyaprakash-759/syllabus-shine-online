@@ -4,6 +4,11 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  experimental: {
+    turbo: {
+      root: '.',
+    },
+  },
 };
 
 export default nextConfig;
