@@ -165,20 +165,20 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* New Line: Prominent Branding with Running Colors */}
-          <div className="flex justify-center pt-4 pb-4">
+          {/* New Line: Clean, On-Brand Orbyza Branding */}
+          <div className="flex justify-center pt-6 pb-2">
             <a
               href="https://orbyza.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col md:flex-row items-center gap-2 transition-all duration-300 bg-white px-8 py-4 rounded-2xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-1"
+              className="group flex items-center gap-2.5 transition-all duration-300 hover:-translate-y-0.5"
             >
-              <span className="text-slate-400 font-bold text-[13px] uppercase tracking-[0.3em]">Designed by</span>
-              <span className="text-[18px] md:text-[22px] font-black tracking-tighter uppercase relative group-hover:scale-105 transition-transform duration-500">
-                <span className="bg-gradient-to-r from-[#00d2ff] via-[#3a7bd5] to-[#00d2ff] bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-running">
+              <span className="text-slate-400 font-bold text-[11px] uppercase tracking-[0.4em]">Designed by</span>
+              <span className="text-[15px] md:text-[17px] font-black tracking-tight uppercase relative">
+                <span className="bg-gradient-to-r from-[#ea1d2c] via-[#0f172a] to-[#ea1d2c] bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-running">
                   Orbyza Digital Marketing Agency
                 </span>
-                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] group-hover:w-full transition-all duration-700" />
+                <div className="absolute -bottom-1 left-0 w-8 group-hover:w-full h-0.5 bg-gradient-to-r from-[#ea1d2c] to-[#0f172a] transition-all duration-700 rounded-full" />
               </span>
             </a>
           </div>
@@ -190,7 +190,7 @@ export default function Footer() {
               100% { background-position: 0% 50%; }
             }
             .animate-gradient-running {
-              animation: gradient-running 3s linear infinite;
+              animation: gradient-running 4s linear infinite;
             }
           `}</style>
 
