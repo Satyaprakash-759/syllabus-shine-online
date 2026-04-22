@@ -160,8 +160,8 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="group flex items-center gap-1.5 transition-all duration-300"
               >
-                <span className="text-slate-400 font-bold text-[10px] uppercase tracking-wider">Designed by</span>
-                <span className="text-primary font-black text-[11px] tracking-tight group-hover:underline underline-offset-4 uppercase">Orbyza Digital Marketing Agency</span>
+                <span className="text-slate-500 font-bold text-[10px] uppercase tracking-wider">Designed by</span>
+                <span className="text-slate-900 font-black text-[11px] tracking-tight group-hover:underline underline-offset-4 uppercase hover:text-primary">Orbyza Digital Marketing Agency</span>
               </a>
             </div>
 
