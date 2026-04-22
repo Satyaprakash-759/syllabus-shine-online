@@ -1,7 +1,7 @@
-
 import type { Metadata } from 'next';
 import "@/index.css";
 import Providers from "@/components/Providers";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: 'Ivy Bridge - Cambridge & IB Online Tutoring in Thailand',
@@ -29,6 +29,7 @@ export default function RootLayout({
         <Providers>
           {children}
         </Providers>
+        <Analytics />
       </body>
     </html>
   );

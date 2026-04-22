@@ -153,6 +153,16 @@ export default function Footer() {
               </p>
               <div className="h-1 w-1 bg-slate-200 rounded-full hidden md:block" />
               <p className="text-slate-400 font-bold text-sm italic">{t('Excellence in Global Education')}</p>
+              <div className="h-1 w-1 bg-slate-200 rounded-full hidden md:block" />
+              <a
+                href="https://orbyza.com?v=2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-1.5 transition-all duration-300 bg-primary/5 px-3 py-1 rounded-full border border-primary/10 hover:bg-primary/10"
+              >
+                <span className="text-slate-500 font-bold text-[10px] uppercase tracking-wider">Designed by</span>
+                <span className="text-primary font-black text-[11px] tracking-tight group-hover:underline underline-offset-4 uppercase">Orbyza Digital Marketing Agency</span>
+              </a>
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-6 order-1 md:order-2">
@@ -165,23 +175,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Orbyza Branding */}
-          <div className="flex justify-center pt-2">
-            <a
-              href="https://orbyza.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-100 bg-slate-50 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
-            >
-              <span className="text-slate-400 text-[11px] font-semibold tracking-wide">Designed by</span>
-              <span className="text-[12px] font-black tracking-wider bg-gradient-to-r from-[#5595D9] to-[#3a7bd5] bg-clip-text text-transparent group-hover:from-primary group-hover:to-blue-500 transition-all duration-300">
-                ORBYZA
-              </span>
-              <svg className="w-3 h-3 text-slate-300 group-hover:text-primary transition-colors duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
-          </div>
         </div>
       </div>
     </footer>
