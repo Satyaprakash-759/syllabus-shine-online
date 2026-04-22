@@ -153,16 +153,6 @@ export default function Footer() {
               </p>
               <div className="h-1 w-1 bg-slate-200 rounded-full hidden md:block" />
               <p className="text-slate-400 font-bold text-sm italic">{t('Excellence in Global Education')}</p>
-              <div className="h-1 w-1 bg-slate-200 rounded-full hidden md:block" />
-              <a
-                href="https://orbyza.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-1.5 transition-all duration-300"
-              >
-                <span className="text-slate-500 font-bold text-[10px] uppercase tracking-wider">Designed by</span>
-                <span className="text-slate-900 font-black text-[11px] tracking-tight group-hover:underline underline-offset-4 uppercase hover:text-primary">Orbyza Digital Marketing Agency</span>
-              </a>
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-6 order-1 md:order-2">
@@ -173,6 +163,19 @@ export default function Footer() {
               <Link href="/privacy-policy" className="text-slate-400 hover:text-primary font-black text-[10px] uppercase tracking-[0.2em] transition-all">{t('Privacy Policy')}</Link>
               <Link href="/terms" className="text-slate-400 hover:text-primary font-black text-[10px] uppercase tracking-[0.2em] transition-all">{t('Terms')}</Link>
             </div>
+          </div>
+
+          {/* New Line: Prominent Branding */}
+          <div className="flex justify-center pt-2 pb-2">
+            <a
+              href="https://orbyza.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 transition-all duration-300 bg-slate-50/50 px-6 py-2 rounded-full border border-slate-100 hover:border-primary/20 hover:bg-white hover:shadow-xl hover:shadow-primary/5"
+            >
+              <span className="text-slate-500 font-bold text-[12px] uppercase tracking-widest">Designed by</span>
+              <span className="text-slate-900 font-black text-[14px] tracking-tighter group-hover:underline underline-offset-4 uppercase hover:text-primary transition-colors">Orbyza Digital Marketing Agency</span>
+            </a>
           </div>
 
         </div>
